@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import {fetchContacts} from "../../redux/contactsOps"
 import {selectIsLoading,selectError} from "../../redux/contactsSlice"
+import Loader from "../Loader/Loader"
 
 
 function App() {
@@ -23,9 +24,8 @@ function App() {
       <h1 className={s.pbTitle}>PhoneBook</h1>
       <ContactForm  /> 
       <SearchBox />
-      {isLoading && <h2>Loading...</h2>}
+      {isLoading ? <Loader/> : <ContactList />}
       {isError && <h2>Something went wrong. Please, try again!</h2>}
-      <ContactList />
     </div>
   )
 }
