@@ -21,10 +21,15 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className={s.pbTitle}>PhoneBook</h1>
+      <div className={s.titleBox}>
+        <div className={s.position}>
+        <h1 className={s.pbTitle}>PhoneBook</h1>
+        {isLoading && <Loader/>}
+        </div>
+      </div>
       <ContactForm  /> 
       <SearchBox />
-      {isLoading ? <Loader/> : <ContactList />}
+      <ContactList />
       {isError && <h2>Something went wrong. Please, try again!</h2>}
     </div>
   )

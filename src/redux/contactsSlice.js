@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import {fetchContacts,addContact,deleteContact} from "./contactsOps"
 import {selectNameFilter} from "./filtersSlice"
 
@@ -13,7 +13,6 @@ const contactsSlice = createSlice({
         builder
         .addCase(fetchContacts.pending,(state)=>{
             state.error = null
-            state.loading = true
         })
         .addCase(fetchContacts.fulfilled,(state,action)=>{
             state.error = null
@@ -25,7 +24,6 @@ const contactsSlice = createSlice({
         })
         .addCase(addContact.pending,(state)=>{
             state.error = null
-            state.loading = true
         })
         .addCase(addContact.fulfilled,(state,action)=>{
             state.error = null
@@ -38,7 +36,6 @@ const contactsSlice = createSlice({
         })
         .addCase(deleteContact.pending,(state)=>{
             state.error = null
-            state.loading = true
         })
         .addCase(deleteContact.fulfilled,(state,action)=>{
             state.error = null
@@ -48,6 +45,9 @@ const contactsSlice = createSlice({
         .addCase(deleteContact.rejected,(state)=>{
             state.loading = false
             state.error = true
+        })
+        .addMatcher(isAnyOf(fetchContacts.pending,addContact.pending,deleteContact.pending),(state)=>{
+            state.loading = true
         })
     }
 })

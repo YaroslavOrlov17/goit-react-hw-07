@@ -1,12 +1,9 @@
-import PropagateLoader from "react-spinners/PropagateLoader"
+import ClipLoader from "react-spinners/ClipLoader"
 import s from "./Loader.module.css"
 
 
 const Loader = () => {
-  return (
-    <div className={s.loaderBox}> <PropagateLoader className={s.loader} color="black" size="10px" />
-  </div>)
-   
+  return <ClipLoader className={s.loader} color="#000000" size="27px" />
 }
 
 export default Loader

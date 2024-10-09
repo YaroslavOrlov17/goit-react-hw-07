@@ -1,3 +1,14 @@
-.pbTitle {
+.titleBox{
   text-align: center;
+  
+}
+
+.position{
+  position: relative;
+  display: inline-block;
+}
+
+.pbTitle {
+ display: inline;
+
 }
