@@ -1,5 +1,5 @@
 import s from "./Contact.module.css"
-import {deleteContact} from "../../redux/contactsSlice.js"
+import {deleteContact} from "../../redux/contactsOps"
 import { useDispatch } from "react-redux"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"

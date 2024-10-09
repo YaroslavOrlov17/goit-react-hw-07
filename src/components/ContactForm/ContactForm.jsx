@@ -4,12 +4,11 @@ import * as Yup from "yup"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
 import { useDispatch } from "react-redux"
-import {addContact} from "../../redux/contactsSlice.js"
+import {addContact} from "../../redux/contactsOps"
 
 import s from "./ContactForm.module.css"
 
 const initialValues = {
-  id: "",
   name: "",
   number: "",
 }
@@ -34,7 +33,7 @@ const dispatch = useDispatch()
 const nameId = nanoid()
 const numId = nanoid()
 function handleSubmit(values, actions) {
-    const addNewContact = { ...values, id: nanoid() }
+    const addNewContact = { ...values,}
     dispatch(addContact(addNewContact))
     actions.resetForm()
   }
